@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="isLoading" fxLayout="row" fxLayoutAlign="center">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>
+
+  <form *ngIf="user" fxLayout="row wrap" fxLayout="column" fxLayoutAlign="space-between center"
+    [formGroup]="profileForm" (ngSubmit)="onProfileFormSubmit(profileForm.value)">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>USER DETAILS</h2>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-form-field fxFlex>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Email" autocomplete="off" readonly>
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="userName" placeholder="Username" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" placeholder="First Name" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Last Name" autocomplete="off">
+    </mat-form-field>
+
+    <ion-button color="primary" type="submit" fxLayoutAlign="center">SAVE CHANGES</ion-button>
+  </form>
+</ion-content>

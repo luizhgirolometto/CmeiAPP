@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+    <div fxLayout="column" fxLayoutAlign="space-between center" *ngFor="let category of categories"
+      class="category-column">
+      <ion-card fxFlex fxLayoutAlign="center center" class="category-card fw-700 t-center"
+        [routerLink]="[ '/all-quiz', category.name]">{{category.name}}</ion-card>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,31 @@
+.sc-ion-card-md-s img {
+    height: 200px !important;
+}
+
+.sc-ion-segment-md-h.ion-color.sc-ion-segment-md-s>ion-segment-button {
+    font-weight: bold;
+}
+
+.category-card {
+    height: 100px;
+    width: 135px;
+    background-color: var(--ion-color-primary, #3880ff);
+    color: #ffffff;
+}
+
+.category-column {
+    height: 120px;
+    width: 50%;
+}
+
+.fw-700 {
+    font-weight: bold;
+}
+
+.t-center {
+    text-align: center
+}
+
+.w-100{
+    width: 100% !important;
+}

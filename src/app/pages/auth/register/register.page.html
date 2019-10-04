@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>SING UP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div fxLayout="row" fxFill fxLayoutAlign="center center" class="backgroundAuth">
+    <div fxLayout="column" fxLayoutAlign="center">
+      <mat-card class="w-30">
+        <form fxLayout="row wrap" fxLayout="column" fxLayoutAlign="space-between center" [formGroup]="registerForm"
+          (ngSubmit)="onRegisterFormSubmit(registerForm.value)">
+          <mat-card-header>
+            <mat-card-title>
+              <h2>REGISTRATION</h2>
+            </mat-card-title>
+          </mat-card-header>
+
+          <a mat-button [routerLink]="['/auth/login']">Already have an account? Sign in!</a>
+
+          <mat-form-field class="w-100" fxFlex>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email" autocomplete="off">
+            <mat-error *ngIf="registerForm.controls.email.errors?.required">Email is required</mat-error>
+            <mat-error *ngIf="registerForm.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100" fxFlex>
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" placeholder="Password" autocomplete="off" type="password">
+            <mat-error *ngIf="registerForm.controls.password.errors?.required">Password is required</mat-error>
+            <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Password isn't long enough, minimum
+              of
+              6 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100" fxFlex>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput formControlName="confirmPassword" placeholder="Confirm password" autocomplete="off"
+              type="password">
+            <mat-error *ngIf="registerForm.controls.confirmPassword.errors?.required">Confirm Password is required
+            </mat-error>
+            <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('mismatchedPasswords')">Passwords do
+              not match</mat-error>
+          </mat-form-field>
+
+          <mat-card-actions>
+            <ion-button type="submit" color="primary">CREATE AN ACCOUNT </ion-button>
+          </mat-card-actions>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</ion-content>

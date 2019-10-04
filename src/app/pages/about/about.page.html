@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="about">{{about.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="https://images.pond5.com/education-word-cloud-footage-022675748_prevstill.jpeg" />
+
+  <div *ngIf="isLoading" fxLayout="row" fxLayoutAlign="center">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>
+
+  <div padding *ngIf="about">
+    <p [innerHtml]="about.content">
+    </p>
+  </div>
+</ion-content>

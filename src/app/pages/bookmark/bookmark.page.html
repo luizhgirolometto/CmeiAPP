@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Bookmarks</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="clear()">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="!quizes">
+    <ion-label fxLayout="row" fxLayoutAlign="center" fxLayoutGap="gappx">
+      NO DATA!
+    </ion-label>
+  </div>
+
+  <ion-item *ngFor="let quiz of quizes" [routerLink]="[ '/quiz-detail/', quiz.key ]">
+    <ion-label>
+      {{quiz.title}}
+      <p>Language: {{quiz.language}}</p>
+    </ion-label>
+    <div fxLayoutAlign="end">
+      <ion-badge color="primary">{{quiz.category}}</ion-badge>
+    </div>
+  </ion-item>
+</ion-content>

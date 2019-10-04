@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form fxLayout="row wrap" fxLayout="column" fxLayoutAlign="space-between center" [formGroup]="contactForm"
+    (ngSubmit)="onContactFormSubmit(contactForm.value)">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Contact Us</h2>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-form-field fxFlex>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Email" autocomplete="off">
+      <mat-error *ngIf="contactForm.controls.email.errors?.required">Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <mat-label>Choose Subject</mat-label>
+      <mat-select formControlName="subject">
+        <mat-option *ngFor="let subject of subjects" [value]="subject.name">
+          {{subject.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="contactForm.controls.subject.hasError('required')">Please choose a subject</mat-error>
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <textarea matInput formControlName="content" placeholder="Description" rows="5"></textarea>
+    </mat-form-field>
+
+    <ion-button color="primary" type="submit" fxLayoutAlign="center">SEND</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Quizzes</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="resetAllFilters()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar animated (ionInput)="filterQuiz($event)" placeholder="Search.." style="background-color: teal">
+  </ion-searchbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item *ngFor="let quiz of quizes" [routerLink]="[ '/quiz-detail/', quiz.key ]">
+    <ion-label>
+      {{quiz.title}}
+      <p>Language: {{quiz.language}}</p>
+    </ion-label>
+    <div fxLayoutAlign="end">
+      <ion-badge color="primary">{{quiz.category}}</ion-badge>
+    </div>
+  </ion-item>
+</ion-content>

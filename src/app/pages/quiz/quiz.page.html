@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div fxLayout="row">
+        <div fxLayout="column" fxFlex="50">Quiz</div>
+        <div fxLayout="column" fxFlex="50">
+          <countdown-timer *ngIf="questions && quiz" (zeroTrigger)="timeOut()" [end]="duration" fxLayoutAlign="end">
+          </countdown-timer>
+        </div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="isLoading" fxLayout="row" fxLayoutAlign="center">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center" *ngIf="quiz">
+    <h3>{{quiz.title}}</h3>
+  </div>
+
+  <div *ngFor="let question of questions;let i = index" padding>
+    <mat-card>
+      <mat-label> {{i+1}}. {{question.question}}</mat-label>
+      <p>
+        <mat-radio-group [(ngModel)]="question.answered" fxFlex>
+          <mat-radio-button [disabled]="result" class="example-radio-button" [value]="answer"
+            *ngFor="let answer of question.answers">
+            {{answer}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <hr />
+    </mat-card>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center">
+    <ion-button color="primary" (click)="openDialog()">CONFIRM</ion-button>
+  </div>
+
+</ion-content>

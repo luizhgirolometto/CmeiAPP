@@ -1,0 +1,7 @@
+{
+  "name": "equiz-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

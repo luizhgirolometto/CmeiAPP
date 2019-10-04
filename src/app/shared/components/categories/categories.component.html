@@ -1,0 +1,13 @@
+<div *ngIf="isLoading" fxLayout="row" fxLayoutAlign="center">
+  <mat-spinner color="primary"></mat-spinner>
+</div>
+
+<ion-segment scrollable color="primary" [(ngModel)]="default" *ngIf="categories">
+  <ion-segment-button style="text-transform: none;" (click)="filterbyCategory('all')" value="all">
+    All
+  </ion-segment-button>
+  <ion-segment-button style="text-transform: none;" *ngFor="let category of categories"
+    (click)="filterbyCategory(category.name)">
+    {{category.name}}
+  </ion-segment-button>
+</ion-segment>

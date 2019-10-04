@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>EQuiz</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button [routerLink]="[ '/category']">
+        <ion-icon slot="icon-only" name="apps"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="[ '/profile']">
+        <ion-icon slot="icon-only" name="contact"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-slides [options]="slideOptsOne">
+    <ion-slide>
+      <img
+        src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-quiz-neon-light-on-brick-wall-night-club-bar-blinking-sign-style-video-available-in-4k-fullhd-and-hd-render-footage_s3alkh5hg_thumbnail-full01.png" />
+    </ion-slide>
+    <ion-slide>
+      <img src="https://quikchex.in/wp-content/uploads/2017/10/payroll-quiz.jpg" />
+    </ion-slide>
+    <ion-slide>
+      <img src="https://childbraininjurytrust.org.uk/wp-content/uploads/2019/03/Quiz-night-image.jpg" />
+    </ion-slide>
+  </ion-slides>
+
+  <app-categories (category)="getSelectedCategory($event)"></app-categories>
+
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h3>Popular Quizes</h3>
+  </div>
+
+  <ion-item *ngFor="let quiz of quizes | slice:0:5" [routerLink]="[ '/quiz-detail/', quiz.key ]">
+    <ion-label>
+      {{quiz.title}}
+      <p>Language: {{quiz.language}}</p>
+    </ion-label>
+    <ion-label fxLayoutAlign="end">
+      <ion-badge color="primary">{{quiz.category}}</ion-badge>
+    </ion-label>
+  </ion-item>
+
+  <ion-button fxLayoutAlign="center" fill="outline" color="primary" [routerLink]="[ '/all-quiz', '' ]">LOAD ALL
+  </ion-button>
+
+
+</ion-content>

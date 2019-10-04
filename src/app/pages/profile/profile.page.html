@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <mat-form-field fxFlex>
+    <input matInput autocomplete="off" disabled [(ngModel)]="email" />
+  </mat-form-field>
+
+  <ion-button fxLayoutAlign="center" color="primary" [routerLink]="['/profile-edit/']">UPDATE PROFILE</ion-button>
+  <ion-button fxLayoutAlign="center" color="danger" (click)="logOut()">LOGOUT</ion-button>
+
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h3>History</h3>
+  </div>
+
+  <ion-item *ngFor="let exam of exams;let i = index" [routerLink]="[ '/exam-result/', exam.key ]">
+    <ion-label>
+      {{i+1}}. {{exam.quiz.title}}
+    </ion-label>
+    <ion-label fxLayoutAlign="end">
+      <ion-badge color="primary">{{exam.quiz.category}}</ion-badge>
+    </ion-label>
+  </ion-item>
+
+</ion-content>
