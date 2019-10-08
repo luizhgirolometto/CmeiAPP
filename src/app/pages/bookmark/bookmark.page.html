@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Bookmarks</ion-title>
+    <ion-title>Favoritos</ion-title>
     <ion-buttons slot="secondary">
       <ion-button (click)="clear()">
         <ion-icon slot="icon-only" name="trash"></ion-icon>
@@ -19,14 +19,14 @@
 
   <div *ngIf="!quizes">
     <ion-label fxLayout="row" fxLayoutAlign="center" fxLayoutGap="gappx">
-      NO DATA!
+      Vaziu!
     </ion-label>
   </div>
 
   <ion-item *ngFor="let quiz of quizes" [routerLink]="[ '/quiz-detail/', quiz.key ]">
     <ion-label>
       {{quiz.title}}
-      <p>Language: {{quiz.language}}</p>
+      <p>Idioma: {{quiz.language}}</p>
     </ion-label>
     <div fxLayoutAlign="end">
       <ion-badge color="primary">{{quiz.category}}</ion-badge>

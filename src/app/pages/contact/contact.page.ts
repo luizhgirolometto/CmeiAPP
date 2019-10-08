@@ -11,9 +11,9 @@ import { ToastService } from 'src/app/services/toast.service';
 export class ContactPage implements OnInit {
   contactForm: FormGroup;
   subjects: any[] = [
-    { name: 'Suggest' },
-    { name: 'Report' },
-    { name: 'Support' }
+    { name: 'Sugestão' },
+    { name: 'Erro' },
+    { name: 'Suporte' }
   ];
   constructor(private formBuilder: FormBuilder,
     private contactService: ContactService,
@@ -34,7 +34,7 @@ export class ContactPage implements OnInit {
   onContactFormSubmit(values: any): void {
     if (this.contactForm.valid) {
       this.contactService.add(values);
-      this.toastService.presentSimpleToast("Message sent successfully!");
+      this.toastService.presentSimpleToast("Mensagem enviada com sucesso!");
       this.resetForm();
     }
   }

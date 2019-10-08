@@ -14,23 +14,23 @@
   </div>
 
   <ion-card *ngIf="!isLoading" class="t-center fw-700">
-    <p>Total correct: {{exam.correct}}</p>
-    <p>Total mistake: {{exam.mistake}}</p>
-    <p>Total unanswered: {{exam.unanswered}}</p>
+    <p>Total acertos: {{exam.correct}}</p>
+    <p>Total erradas: {{exam.mistake}}</p>
+    <p>Total sem resposta: {{exam.unanswered}}</p>
   </ion-card>
 
   <div *ngIf="!isLoading">
     <ion-item *ngFor="let question of exam.quiz.questions; let i=index">
       <ion-label text-wrap>
         {{i+1}}. {{question.question}}
-        <p>Your Answer: {{question.answered}} </p>
-        <p>Correct Answer: {{question.answerRight}}</p>
+        <p>Sua Resposta: {{question.answered}} </p>
+        <p>Resposta Correta: {{question.answerRight}}</p>
       </ion-label>
 
       <div fxLayoutAlign="end">
-        <ion-badge color="success" *ngIf="question.answered==question.answerRight && question.answered!=''">Right</ion-badge>
-        <ion-badge color="medium" *ngIf="question.answered==''">Unanswered</ion-badge>
-        <ion-badge color="danger" *ngIf="question.answered!=question.answerRight && question.answered!=''">Wrong</ion-badge>
+        <ion-badge color="success" *ngIf="question.answered==question.answerRight && question.answered!=''">Correta</ion-badge>
+        <ion-badge color="medium" *ngIf="question.answered==''">Sem Resposta</ion-badge>
+        <ion-badge color="danger" *ngIf="question.answered!=question.answerRight && question.answered!=''">Errada</ion-badge>
       </div>
     </ion-item>
   </div>

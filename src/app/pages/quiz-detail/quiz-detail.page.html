@@ -22,13 +22,13 @@
     <mat-card class="w-100">
       <h3 fxLayoutAlign="center">{{quiz.title}}</h3>
       <mat-card-header>
-        Category: {{quiz.category}}
+        Categoria: {{quiz.category}}
       </mat-card-header>
       <mat-card-header>
-        Duration: {{quiz.duration}} minutes
+        Duração: {{quiz.duration}} minutes
       </mat-card-header>
       <mat-card-header>
-        Exam Count: {{quiz.examCount}}
+        Tentativas: {{quiz.examCount}}
       </mat-card-header>
       <br />
       <mat-card-content>
@@ -36,7 +36,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <ion-button color="primary" fxLayoutAlign="center" [routerLink]="[ '/quiz', quizKey, userKey ]">START
+        <ion-button color="primary" fxLayoutAlign="center" [routerLink]="[ '/quiz', quizKey, userKey ]">INICIAR
         </ion-button>
       </mat-card-actions>
     </mat-card>

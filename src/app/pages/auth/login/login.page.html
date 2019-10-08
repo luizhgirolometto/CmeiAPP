@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>SIGN IN</ion-title>
+    <ion-title>LOGIN</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,30 +15,28 @@
           (ngSubmit)="onLoginFormSubmit(loginForm.value)">
           <mat-card-header>
             <mat-card-title>
-              <h2>SIGN IN</h2>
+              <h2>LOGIN</h2>
             </mat-card-title>
           </mat-card-header>
 
-          <a mat-button [routerLink]="['/auth/register']">Don't have an account? Sign up
-            now!</a>
+          <a mat-button [routerLink]="['/auth/register']">Não possui conta? Cadastre-se!</a>
 
           <mat-form-field class="w-100" fxFlex>
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" placeholder="Email" autocomplete="off">
-            <mat-error *ngIf="loginForm.controls.email.errors?.required">Email is required</mat-error>
-            <mat-error *ngIf="loginForm.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+            <mat-error *ngIf="loginForm.controls.email.errors?.required">Email é obrigatório</mat-error>
+            <mat-error *ngIf="loginForm.controls.email.hasError('invalidEmail')">Endereço de e-mail inválido</mat-error>
           </mat-form-field>
 
           <mat-form-field class="w-100" fxFlex>
-            <mat-label>Password</mat-label>
+            <mat-label>Senha</mat-label>
             <input matInput formControlName="password" placeholder="Password" autocomplete="off" type="password">
-            <mat-error *ngIf="loginForm.controls.password.errors?.required">Password is required</mat-error>
-            <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">Password isn't long enough, minimum of
-              6 characters</mat-error>
+            <mat-error *ngIf="loginForm.controls.password.errors?.required">Senha é obrigatória</mat-error>
+            <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">Senha curta!! minimo de 6 carácteres</mat-error>
           </mat-form-field>
 
           <mat-card-actions>
-            <ion-button type="submit" color="primary">SIGN TO MY ACCOUNT</ion-button>
+            <ion-button type="submit" color="primary">ACESSAR MINHA CONTA</ion-button>
           </mat-card-actions>
         </form>
       </mat-card>

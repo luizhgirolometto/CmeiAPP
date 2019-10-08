@@ -66,7 +66,7 @@ export class QuizPage implements OnInit {
   }
 
   timeOut() {
-    alert("Time Out!");
+    alert("Fim do tempo!");
   }
 
   confirm() {
@@ -106,7 +106,7 @@ export class QuizPage implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.confirm();
-        this.toastService.presentSimpleToast("Successfully confirmed!");
+        this.toastService.presentSimpleToast("Sucesso Terminado!");
       }
     });
   }

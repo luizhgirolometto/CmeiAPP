@@ -49,7 +49,7 @@ export class RegisterPage implements OnInit {
 
   register(user: User) {
     this.authService.register(user);
-    this.toastService.presentSimpleToast("Successfully registered!");
+    this.toastService.presentSimpleToast("Registrado com sucesso!");
     this.router.navigate(["auth/login"]);
   }
 }

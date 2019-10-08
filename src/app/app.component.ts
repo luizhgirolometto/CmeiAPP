@@ -18,22 +18,22 @@ export class AppComponent {
       icon: "home"
     },
     {
-      title: "Bookmark",
+      title: "Favoritos",
       url: "/bookmark",
       icon: "bookmark"
     },
     {
-      title: "Contact Us",
+      title: "Contato",
       url: "/contact",
       icon: "mail-open"
     },
     {
-      title: "About Us",
+      title: "Sobre",
       url: "/about",
       icon: "information-circle"
     },
     {
-      title: "Terms and Conditions",
+      title: "Termos e condição",
       url: "/term",
       icon: "construct"
     }
@@ -83,8 +83,8 @@ export class AppComponent {
       let additionalData = data.notification.payload.additionalData;
 
       this.showAlert(
-        "Notification opened",
-        "You already read this before",
+        "Notificação aberta",
+        "Você já leu isso antes",
         additionalData.task
       );
     });

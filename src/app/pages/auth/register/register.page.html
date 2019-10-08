@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>SING UP</ion-title>
+    <ion-title>CADASTRO</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,40 +16,37 @@
           (ngSubmit)="onRegisterFormSubmit(registerForm.value)">
           <mat-card-header>
             <mat-card-title>
-              <h2>REGISTRATION</h2>
+              <h2>REGISTRO</h2>
             </mat-card-title>
           </mat-card-header>
 
-          <a mat-button [routerLink]="['/auth/login']">Already have an account? Sign in!</a>
+          <a mat-button [routerLink]="['/auth/login']">Já tem uma conta? clique aqui!</a>
 
           <mat-form-field class="w-100" fxFlex>
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" placeholder="Email" autocomplete="off">
-            <mat-error *ngIf="registerForm.controls.email.errors?.required">Email is required</mat-error>
-            <mat-error *ngIf="registerForm.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+            <mat-error *ngIf="registerForm.controls.email.errors?.required">Email é obrigatório</mat-error>
+            <mat-error *ngIf="registerForm.controls.email.hasError('invalidEmail')">Endereço de e-mail inválido</mat-error>
           </mat-form-field>
 
           <mat-form-field class="w-100" fxFlex>
-            <mat-label>Password</mat-label>
-            <input matInput formControlName="password" placeholder="Password" autocomplete="off" type="password">
-            <mat-error *ngIf="registerForm.controls.password.errors?.required">Password is required</mat-error>
-            <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Password isn't long enough, minimum
-              of
-              6 characters</mat-error>
+            <mat-label>Senha</mat-label>
+            <input matInput formControlName="password" placeholder="Senha" autocomplete="off" type="password">
+            <mat-error *ngIf="registerForm.controls.password.errors?.required">Senha é obrigatória</mat-error>
+            <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">Senha é curta! minimo de 6 carácteres</mat-error>
           </mat-form-field>
 
           <mat-form-field class="w-100" fxFlex>
-            <mat-label>Confirm Password</mat-label>
-            <input matInput formControlName="confirmPassword" placeholder="Confirm password" autocomplete="off"
+            <mat-label>Confirmar Senha</mat-label>
+            <input matInput formControlName="confirmPassword" placeholder="Confirmar senha" autocomplete="off"
               type="password">
-            <mat-error *ngIf="registerForm.controls.confirmPassword.errors?.required">Confirm Password is required
+            <mat-error *ngIf="registerForm.controls.confirmPassword.errors?.required">Confirmar senha é obrigatório
             </mat-error>
-            <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('mismatchedPasswords')">Passwords do
-              not match</mat-error>
+            <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('mismatchedPasswords')">As senhas são diferentes</mat-error>
           </mat-form-field>
 
           <mat-card-actions>
-            <ion-button type="submit" color="primary">CREATE AN ACCOUNT </ion-button>
+            <ion-button type="submit" color="primary">CRIAR CONTA</ion-button>
           </mat-card-actions>
         </form>
       </mat-card>
