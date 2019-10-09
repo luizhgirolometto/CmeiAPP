@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
         data[0].password = "";
         this.authService.setLogged(data[0] as User);
       } else
-        this.toastService.presentSimpleToast("Incorrect Email or Password");
+        this.toastService.presentSimpleToast("Senha ou e-mail incorretos");
     });
   }
 }

@@ -64,7 +64,7 @@ export class AppComponent {
   }
 
   setupPush() {
-    this.oneSignal.startInit(environment.ONESIGNAL_APP_ID, "com.equiz.app"); //YOUR ANDROID ID
+    this.oneSignal.startInit(environment.ONESIGNAL_APP_ID, "cc70dc59-2563-4fb6-bc8c-18d8f18eac5e"); //YOUR ANDROID ID
     this.oneSignal.inFocusDisplaying(
       this.oneSignal.OSInFocusDisplayOption.None
     );

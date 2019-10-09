@@ -18,6 +18,26 @@
     <mat-spinner color="primary"></mat-spinner>
   </div>
 
+  <ion-card *ngIf="quiz">
+
+    <ion-card-header>
+      <ion-item lines="full">
+        <ion-card-title>{{quiz.title}}</ion-card-title>
+      </ion-item>
+
+      <ion-card-subtitle><ion-label color="dark">Categoria: </ion-label>{{quiz.category}}</ion-card-subtitle>
+      <ion-card-subtitle><ion-label color="dark">Duração: </ion-label>{{quiz.duration}} minutos</ion-card-subtitle>
+      <ion-card-subtitle><ion-label color="dark">Tentativas: </ion-label> {{quiz.examCount}}</ion-card-subtitle>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      {{quiz.description}}
+    </ion-card-content>
+    <ion-button color="primary" fxLayoutAlign="center" [routerLink]="[ '/quiz', quizKey, userKey ]">INICIAR
+    </ion-button>
+  </ion-card>
+  <!--
   <div fxLayoutAlign="center center" *ngIf="quiz">
     <mat-card class="w-100">
       <h3 fxLayoutAlign="center">{{quiz.title}}</h3>
@@ -40,7 +60,7 @@
         </ion-button>
       </mat-card-actions>
     </mat-card>
-  </div>
+  </div>-->
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="primary" (click)="share()">

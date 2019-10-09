@@ -36,7 +36,7 @@ export class BookmarkPage implements OnInit {
 
   clear() {
     localStorage.removeItem("bookmarks");
-    this.toastService.presentSimpleToast("All bookmarks cleared!");
+    this.toastService.presentSimpleToast("Todos os itens foram apagados!");
     this.getQuizes();
   }
 }

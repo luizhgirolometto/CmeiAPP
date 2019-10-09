@@ -106,7 +106,7 @@ export class QuizPage implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.confirm();
-        this.toastService.presentSimpleToast("Sucesso Terminado!");
+        this.toastService.presentSimpleToast("Sucesso Terminou!");
       }
     });
   }

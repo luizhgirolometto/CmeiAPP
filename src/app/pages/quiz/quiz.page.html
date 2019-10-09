@@ -21,24 +21,28 @@
     <mat-spinner color="primary"></mat-spinner>
   </div>
 
+
   <div fxLayout="row" fxLayoutAlign="center" *ngIf="quiz">
     <h3>{{quiz.title}}</h3>
   </div>
-
   <div *ngFor="let question of questions;let i = index" padding>
-    <mat-card>
-      <mat-label> {{i+1}}. {{question.question}}</mat-label>
-      <p>
-        <mat-radio-group [(ngModel)]="question.answered" fxFlex>
-          <mat-radio-button [disabled]="result" class="example-radio-button" [value]="answer"
-            *ngFor="let answer of question.answers">
-            {{answer}}
-          </mat-radio-button>
-        </mat-radio-group>
-        <hr />
-    </mat-card>
-  </div>
+    <ion-card>
 
+      <ion-card-header>
+        <ion-item lines="full">
+          <ion-card-title>{{i+1}}. {{question.question}}</ion-card-title>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-radio-group [(ngModel)]="question.answered">
+          <ion-item *ngFor="let answer of question.answers">
+            <p>{{answer}}</p>
+            <ion-radio slot="start" [disabled]="result" [value]="answer"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-card-content>
+    </ion-card>
+  </div>
   <div fxLayout="row" fxLayoutAlign="center">
     <ion-button color="primary" (click)="openDialog()">CONFIRMAR</ion-button>
   </div>

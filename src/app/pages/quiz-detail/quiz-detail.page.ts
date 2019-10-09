@@ -49,14 +49,14 @@ export class QuizDetailPage implements OnInit {
     if (bookmarks) {
       arr = bookmarks;
       if (arr.filter(v => v.key == this.quizKey).length > 0) {
-        this.toastService.presentSimpleToast("Quiz already added!");
+        this.toastService.presentSimpleToast("Quiz já marcado como favorito!");
         return;
       }
     }
     this.quiz.key = this.quizKey;
     arr.push(this.quiz);
     localStorage.setItem("bookmarks", JSON.stringify(arr));
-    this.toastService.presentSimpleToast("Successfully added!");
+    this.toastService.presentSimpleToast("Adicionado com sucesso!");
   }
 
   share() {

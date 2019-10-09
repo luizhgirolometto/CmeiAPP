@@ -24,13 +24,13 @@
   <ion-slides [options]="slideOptsOne">
     <ion-slide>
       <img
-        src="../../../assets/imgs/banner01.png" />
+        src="../../../assets/imgs/banner02.png" />
     </ion-slide>
     <ion-slide>
       <img src="https://quikchex.in/wp-content/uploads/2017/10/payroll-quiz.jpg" />
     </ion-slide>
     <ion-slide>
-      <img src="https://childbraininjurytrust.org.uk/wp-content/uploads/2019/03/Quiz-night-image.jpg" />
+      <img src="../../../assets/imgs/banner01.png" />
     </ion-slide>
   </ion-slides>
 
@@ -50,8 +50,14 @@
     </ion-label>
   </ion-item>
 
-  <ion-button fxLayoutAlign="center" fill="outline" color="primary" [routerLink]="[ '/all-quiz', '' ]">Carregar todos
-  </ion-button>
+  
 
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button fxLayoutAlign="center"  color="primary" [routerLink]="[ '/all-quiz', '' ]">Carregar todos
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
