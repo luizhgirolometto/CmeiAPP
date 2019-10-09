@@ -54,8 +54,8 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.admobFreeService.BannerAd();
-      this.showInterstitial();
+     // this.admobFreeService.BannerAd();
+     // this.showInterstitial();
 
       if (this.platform.is("cordova")) {
         this.setupPush();
@@ -108,7 +108,7 @@ export class AppComponent {
     alert.present();
   }
 
-  showInterstitial() {
-    this.admobFreeService.InterstitialAd();
-  }
+//  showInterstitial() {
+  //  this.admobFreeService.InterstitialAd();
+  //}
 }
