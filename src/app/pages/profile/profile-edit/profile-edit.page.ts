@@ -45,6 +45,6 @@ export class ProfileEditPage implements OnInit {
 
   onProfileFormSubmit(values: any): void {
     this.userService.update(values, this.key);
-    this.toastService.presentSimpleToast("Successfully updated!");
+    this.toastService.presentSimpleToast("Atualizado com sucesso!");
   }
 }
