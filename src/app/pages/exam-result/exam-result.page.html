@@ -7,22 +7,48 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
 
 
-    <ion-card>
-      
-        <ion-card-header>
-          <ion-card-title *ngIf="!isLoading">{{exam.quiz.title}}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content *ngIf="!isLoading" >
-            <p class="acerto">Total acertos: {{exam.correct}}</p>
-            <p class="errou">Total erradas: {{exam.mistake}}</p>
-            <p class="semresposta">Total sem resposta: {{exam.unanswered}}</p>
-        </ion-card-content>
-      </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title *ngIf="!isLoading">{{exam.quiz.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="!isLoading">
+      <p class="acerto">Total acertos: {{exam.correct}}</p>
+      <p class="errou">Total erradas: {{exam.mistake}}</p>
+      <p class="semresposta">Total sem resposta: {{exam.unanswered}}</p>
+    </ion-card-content>
+  </ion-card>
 
 
+  <ion-card *ngIf="!isLoading">
+    <ion-card-content>
+      <ion-list *ngFor="let question of exam.quiz.questions; let i=index">
+        <ion-item-group>
+          <ion-item-divider>
+            {{i+1}}. {{question.question}}
+          </ion-item-divider>
+          <ion-item>
+              <ion-icon slot="start" color="success" name="logo-ionic"></ion-icon>
+            Sua Resposta: {{question.answered}}
+          </ion-item>
+          <ion-item lines="none">
+              <ion-icon slot="start" color="success" name="logo-ionic"></ion-icon>
+            Resposta Correta: {{question.answerRight}}
+          </ion-item>
+          <div fxLayoutAlign="end">
+              <ion-badge color="success" *ngIf="question.answered==question.answerRight && question.answered!=''">Correta</ion-badge>
+              <ion-badge color="medium" *ngIf="question.answered==''">Sem Resposta</ion-badge>
+              <ion-badge color="danger" *ngIf="question.answered!=question.answerRight && question.answered!=''">Errada</ion-badge>
+            </div>
+        </ion-item-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <!--
   <div *ngIf="!isLoading">
     <ion-item *ngFor="let question of exam.quiz.questions; let i=index">
       <ion-label text-wrap>
@@ -30,7 +56,7 @@
         <ion-item>
            Sua Resposta: {{question.answered}} 
         </ion-item>
-        <ion-item>
+        <ion-item class="acerto">
            Resposta Correta: {{question.answerRight}}
         </ion-item>      
       </ion-label>
@@ -42,5 +68,6 @@
       </div>
     </ion-item>
   </div>
+      -->
 
 </ion-content>
