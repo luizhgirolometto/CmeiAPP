@@ -12,7 +12,7 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title *ngIf="!isLoading">{{exam.quiz.title}}</ion-card-title>
+      <ion-card-title *ngIf="!isLoading"><h1>{{exam.quiz.title}}</h1></ion-card-title>
     </ion-card-header>
     <ion-card-content *ngIf="!isLoading">
       <p class="acerto">Total acertos: {{exam.correct}}</p>
@@ -30,18 +30,18 @@
             {{i+1}}. {{question.question}}
           </ion-item-divider>
           <ion-item>
-              <ion-icon slot="start" color="success" name="logo-ionic"></ion-icon>
+            <ion-icon slot="start" color="success" name="checkmark-circle"
+              *ngIf="question.answered==question.answerRight && question.answered!=''"></ion-icon>
+
+            <ion-icon slot="start" color="danger" name="close-circle"
+              *ngIf="question.answered!=question.answerRight && question.answered!=''"></ion-icon>
+
             Sua Resposta: {{question.answered}}
           </ion-item>
-          <ion-item lines="none">
-              <ion-icon slot="start" color="success" name="logo-ionic"></ion-icon>
+          <ion-item>
+            <ion-icon slot="start" color="success" name="checkmark-circle"></ion-icon>
             Resposta Correta: {{question.answerRight}}
           </ion-item>
-          <div fxLayoutAlign="end">
-              <ion-badge color="success" *ngIf="question.answered==question.answerRight && question.answered!=''">Correta</ion-badge>
-              <ion-badge color="medium" *ngIf="question.answered==''">Sem Resposta</ion-badge>
-              <ion-badge color="danger" *ngIf="question.answered!=question.answerRight && question.answered!=''">Errada</ion-badge>
-            </div>
         </ion-item-group>
       </ion-list>
     </ion-card-content>
