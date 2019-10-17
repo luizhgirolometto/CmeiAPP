@@ -12,7 +12,9 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title *ngIf="!isLoading"><h1>{{exam.quiz.title}}</h1></ion-card-title>
+      <ion-card-title *ngIf="!isLoading">
+        <h1>{{exam.quiz.title}}</h1>
+      </ion-card-title>
     </ion-card-header>
     <ion-card-content *ngIf="!isLoading">
       <p class="acerto">Total acertos: {{exam.correct}}</p>
@@ -34,7 +36,8 @@
               *ngIf="question.answered==question.answerRight && question.answered!=''"></ion-icon>
 
             <ion-icon slot="start" color="danger" name="close-circle"
-              *ngIf="question.answered!=question.answerRight && question.answered!=''"></ion-icon>
+              *ngIf="question.answered!=question.answerRight && question.answered!='' || question.answered==''">
+            </ion-icon>
 
             Sua Resposta: {{question.answered}}
           </ion-item>

@@ -60,6 +60,6 @@ export class QuizDetailPage implements OnInit {
   }
 
   share() {
-    this.shareService.share(this.quiz.title, "EQuiz");
+    this.shareService.share(this.quiz.title, "ECoQuiz");
   }
 }

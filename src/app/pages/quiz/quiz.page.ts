@@ -9,6 +9,7 @@ import { Exam } from 'src/app/models/exam.model';
 import { ConfirmModalComponent } from 'src/app/shared/components/confirm-modal/confirm-modal.component';
 import { MatDialog } from '@angular/material';
 import { ToastService } from 'src/app/services/toast.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: "app-quiz",
@@ -34,7 +35,8 @@ export class QuizPage implements OnInit {
     private examService: ExamService,
     private dialog: MatDialog,
     private router: Router,
-    private toastService: ToastService
+    private toastService: ToastService,
+    public alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -65,8 +67,18 @@ export class QuizPage implements OnInit {
     });
   }
 
-  timeOut() {
-    alert("Fim do tempo!");
+//  timeOut() {
+  //  alert("Fim do tempo!");
+ // }
+
+  async timeOut(){
+    const alert = await this.alertController.create({
+      header: 'Tempo!!',
+      subHeader: 'e agora?',
+      message: 'Acabou o tempo!!!!.',
+      buttons: ['Cancel', 'Open Modal', 'Delete']
+    });
+    await alert.present();
   }
 
   confirm() {
