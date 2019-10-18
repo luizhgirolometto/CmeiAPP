@@ -63,23 +63,23 @@ export class QuizPage implements OnInit {
       this.duration = new Date().setMinutes(
         new Date().getMinutes() + parseInt(this.quiz.duration.toString())
       );
-      this.resetForm();
+        this.resetForm();
     });
   }
 
-//  timeOut() {
+  //  timeOut() {
   //  alert("Fim do tempo!");
- // }
-
-  async timeOut(){
-    const alert = await this.alertController.create({
-      header: 'Tempo!!',
-      subHeader: 'e agora?',
-      message: 'Acabou o tempo!!!!.',
-      buttons: ['Cancel', 'Open Modal', 'Delete']
-    });
-    await alert.present();
-  }
+  // }
+  //
+  // async timeOut(){
+  //  const alert = await this.alertController.create({
+  //   header: 'Tempo!!',
+  //  subHeader: 'e agora?',
+  // message: 'Acabou o tempo!!!!.',
+  // buttons: ['Cancel', 'Open Modal', 'Delete']
+  // });
+  // await alert.present();
+  // }
 
   confirm() {
     this.correct = 0;
