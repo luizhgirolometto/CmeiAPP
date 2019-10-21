@@ -67,9 +67,9 @@ export class QuizPage implements OnInit {
     });
   }
 
-  //  timeOut() {
-  //  alert("Fim do tempo!");
-  // }
+   timeOut() {
+   alert("Fim do tempo!");
+   }
   //
   // async timeOut(){
   //  const alert = await this.alertController.create({

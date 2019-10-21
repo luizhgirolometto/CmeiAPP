@@ -8,7 +8,7 @@
       <div fxLayout="row">
         <div fxLayout="column" fxFlex="50">Quiz</div>
         <div fxLayout="column" fxFlex="50">
-          <countdown-timer *ngIf="questions && quiz"  [end]="duration" fxLayoutAlign="end">
+          <countdown-timer *ngIf="questions && quiz"  (zeroTrigger)="confirm()" [end]="duration" fxLayoutAlign="end">
           </countdown-timer>
         </div>
       </div>
