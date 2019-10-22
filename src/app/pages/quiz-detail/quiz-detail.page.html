@@ -25,14 +25,33 @@
         <ion-card-title>{{quiz.title}}</ion-card-title>
       </ion-item>
 
-      <ion-card-subtitle><ion-label color="dark">Categoria: </ion-label>{{quiz.category}}</ion-card-subtitle>
-      <ion-card-subtitle><ion-label color="dark">Duração: </ion-label>{{quiz.duration}} minutos</ion-card-subtitle>
-      <ion-card-subtitle><ion-label color="dark">Tentativas: </ion-label> {{quiz.examCount}}</ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-label color="dark">Categoria: </ion-label>{{quiz.category}}
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-label color="dark">Duração: </ion-label>{{quiz.duration}} minutos
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-label color="dark">Tentativas: </ion-label> {{quiz.examCount}}
+      </ion-card-subtitle>
 
     </ion-card-header>
 
     <ion-card-content>
       {{quiz.description}}
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <img src="../../../assets/imgs/principe.png" />
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <ion-card-content>
+      Conclua a missão com mais pontos... Tudo pronto? Clique em iniciar.
     </ion-card-content>
     <ion-button color="primary" fxLayoutAlign="center" [routerLink]="[ '/quiz', quizKey, userKey ]">INICIAR
     </ion-button>

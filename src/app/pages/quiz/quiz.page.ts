@@ -63,7 +63,8 @@ export class QuizPage implements OnInit {
       this.duration = new Date().setMinutes(
         new Date().getMinutes() + parseInt(this.quiz.duration.toString())
       );
-        this.resetForm();
+     this.resetForm();
+     console.log('getquiz caiu aqui');
     });
   }
 
@@ -98,6 +99,7 @@ export class QuizPage implements OnInit {
     let examKey = this.examService.add(this.exam).key;
     this.router.navigateByUrl(`exam-result/${examKey}`);
     this.incrementQuiz();
+    console.log('confirmação');
   }
 
   checkAnswers() {
@@ -109,11 +111,13 @@ export class QuizPage implements OnInit {
   }
 
   incrementQuiz() {
+    console.log('incrementar');
     this.quiz.examCount++;
     this.quizService.update(this.quiz, this.quizKey);
   }
 
   openDialog() {
+    console.log('finalizando');
     const dialogRef = this.dialog.open(ConfirmModalComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -124,6 +128,7 @@ export class QuizPage implements OnInit {
   }
 
   resetForm() {
+    console.log('resetform');
     this.questions.forEach(element => {
       element.answered = "";
     })
