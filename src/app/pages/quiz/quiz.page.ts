@@ -71,16 +71,7 @@ export class QuizPage implements OnInit {
    timeOut() {
    alert("Fim do tempo!");
    }
-  //
-  // async timeOut(){
-  //  const alert = await this.alertController.create({
-  //   header: 'Tempo!!',
-  //  subHeader: 'e agora?',
-  // message: 'Acabou o tempo!!!!.',
-  // buttons: ['Cancel', 'Open Modal', 'Delete']
-  // });
-  // await alert.present();
-  // }
+  
 
   confirm() {
     this.correct = 0;

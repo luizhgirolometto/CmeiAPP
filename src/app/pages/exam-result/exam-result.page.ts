@@ -37,28 +37,13 @@ export class ExamResultPage implements OnInit {
   }
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
-        }, {
-          text: 'Okay',
-          handler: () => {
-            console.log('Confirm Okay');
-          }
-        }
-      ]
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: 'This is an alert message.',
+      buttons: ['OK']
     });
-  
+
     await alert.present();
-    let result = await alert.onDidDismiss();
-    console.log(result);
   }
  
 
