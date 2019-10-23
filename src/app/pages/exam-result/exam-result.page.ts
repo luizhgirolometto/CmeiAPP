@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ExamService } from 'src/app/services/exam.service';
 import { Exam } from 'src/app/models/exam.model';
 import { ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { ResultsPage } from 'src/app/modal/results/results.page';
+
+
 
 @Component({
   selector: 'app-exam-result',
@@ -12,11 +15,16 @@ import { AlertController } from '@ionic/angular';
 export class ExamResultPage implements OnInit {
   exam: Exam;
   isLoading: boolean = true;
+  
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private examService: ExamService,
-    public alertController: AlertController) { }
+    public alertController: AlertController,
+    public modalCtrl: ModalController) { 
+      
+
+    }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(data => {
@@ -30,8 +38,9 @@ export class ExamResultPage implements OnInit {
     this.examService.get(key).subscribe(data => {
       this.exam = data;
       this.isLoading = false;
-      console.log('hora do resultado');
-      this.presentAlert();
+      var soma = (this.exam.correct * 100) / (this.exam.correct + this.exam.unanswered + this.exam.mistake);
+      console.log(soma);
+      this.modalPage();
       
     })
   }
@@ -44,6 +53,19 @@ export class ExamResultPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async modalPage () {
+
+
+    const modal = await this.modalCtrl.create({
+      component: ResultsPage,
+      cssClass: 'my-custom-modal-css',
+      componentProps: {
+        
+      }
+    });
+    return await modal.present();
   }
  
 

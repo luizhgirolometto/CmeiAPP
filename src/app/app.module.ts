@@ -19,6 +19,7 @@ import { SocialSharing } from "@ionic-native/social-sharing/ngx";
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { AdmobFreeService } from "./services/admobfree.service";
 import { AdMobFree } from "@ionic-native/admob-free/ngx";
+import { ResultsPageModule } from './modal/results/results.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { AdMobFree } from "@ionic-native/admob-free/ngx";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularFireDatabaseModule,
+    ResultsPageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [

@@ -59,7 +59,8 @@ const routes: Routes = [
     loadChildren: "./pages/exam-result/exam-result.module#ExamResultPageModule",
     canActivate: [AuthGuard]
   },
-  { path: "term", loadChildren: "./pages/term/term.module#TermPageModule" }
+  { path: "term", loadChildren: "./pages/term/term.module#TermPageModule" },
+  { path: 'results', loadChildren: './modal/results/results.module#ResultsPageModule' }
 ];
 
 @NgModule({

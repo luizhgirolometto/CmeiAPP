@@ -4,3 +4,12 @@
 // styles are for the entire app and not just one component. Additionally, this 
 // file can hold Sass mixins, functions, and placeholder classes to be imported 
 // and used throughout the application.
+
+.my-custom-modal-css .modal-wrapper {
+    height: 20%;
+    top: 30%;
+    position: center; 
+    bottom: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+ }
