@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { NavParams } from '@ionic/angular';
 
@@ -9,7 +9,13 @@ import { NavParams } from '@ionic/angular';
 })
 export class ResultsPage implements OnInit {
 
-  constructor(private modalCtrl: ModalController) { }
+  @Input() results: number; 
+
+  constructor(private modalCtrl: ModalController,
+    navParams: NavParams) { 
+
+      console.log(navParams.get('results'));
+    }
 
   ngOnInit() {
   }

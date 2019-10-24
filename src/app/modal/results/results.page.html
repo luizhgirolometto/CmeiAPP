@@ -1,13 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="primary">
-      <ion-button color="secondary">
-        <ion-icon slot="icon-only" name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+
+  <ion-img *ngIf="results == 100" src="../../../assets/imgs/campeao.png"></ion-img>
+  <ion-img *ngIf="results > 70 && results < 100" src="../../../assets/imgs/quase.png"></ion-img>
+  <ion-img *ngIf="results > 40 && results < 70" src="../../../assets/imgs/continue.png"></ion-img>
+  <ion-img *ngIf="results < 40" src="../../../assets/imgs/destavez.png"></ion-img>
+
 
 </ion-content>

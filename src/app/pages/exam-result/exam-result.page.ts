@@ -40,29 +40,18 @@ export class ExamResultPage implements OnInit {
       this.isLoading = false;
       var soma = (this.exam.correct * 100) / (this.exam.correct + this.exam.unanswered + this.exam.mistake);
       console.log(soma);
-      this.modalPage();
+      this.modalPage(soma);
       
     })
   }
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
-      buttons: ['OK']
-    });
-
-    await alert.present();
-  }
-
-  async modalPage () {
-
+ 
+  async modalPage ( soma: number) {
 
     const modal = await this.modalCtrl.create({
       component: ResultsPage,
       cssClass: 'my-custom-modal-css',
       componentProps: {
-        
+        'results': soma,
       }
     });
     return await modal.present();
