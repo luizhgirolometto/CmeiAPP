@@ -26,16 +26,6 @@ export class AppComponent {
       title: "Contato",
       url: "/contact",
       icon: "mail-open"
-    },
-    {
-      title: "Sobre",
-      url: "/about",
-      icon: "information-circle"
-    },
-    {
-      title: "Termos e condição",
-      url: "/term",
-      icon: "construct"
     }
   ];
 

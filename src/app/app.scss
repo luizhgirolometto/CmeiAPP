@@ -6,10 +6,11 @@
 // and used throughout the application.
 
 .my-custom-modal-css .modal-wrapper {
+    --background: transparent !important;
     height: 80%;
     position: center; 
     margin-left: 5%;
     margin-right: 5%;
-    z-index:2;
-	opacity: 0.5;
+    
+	
  }

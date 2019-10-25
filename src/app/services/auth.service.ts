@@ -37,7 +37,7 @@ export class AuthService {
     localStorage.setItem("currentUser", JSON.stringify(user));
     this.loggedIn.next(true);
     this.router.navigate(["/home"]);
-    this.toastService.presentSimpleToast("You were entered successfully!");
+    this.toastService.presentSimpleToast("Logado com sucesso!");
   }
 
   getCurrentUser(): User {
@@ -57,6 +57,6 @@ export class AuthService {
     localStorage.removeItem("currentUser");
     this.loggedIn.next(false);
     this.router.navigate(["/"]);
-    this.toastService.presentSimpleToast("Successfully logged out!");
+    this.toastService.presentSimpleToast("Desconectado com sucesso!");
   }
 }
