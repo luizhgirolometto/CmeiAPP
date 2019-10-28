@@ -23,7 +23,7 @@
 
           <mat-form-field class="w-100" fxFlex>
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email" placeholder="Email" autocomplete="off">
+            <input matInput formControlName="email" autocapitalize="none" placeholder="Email" autocomplete="off">
             <mat-error *ngIf="loginForm.controls.email.errors?.required">Email é obrigatório</mat-error>
             <mat-error *ngIf="loginForm.controls.email.hasError('invalidEmail')">Endereço de e-mail inválido</mat-error>
           </mat-form-field>
